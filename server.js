@@ -1,48 +1,40 @@
-// server.js
-require('dotenv').config(); // .env dosyasını yükler
-
-console.log('Unsplash Access Key:', process.env.UNSPLASH_ACCESS_KEY);
-
-
-require('dotenv').config(); // Çevre değişkenlerini yükle
-const express = require('express');
-const cors = require('cors');
-const axios = require('axios');
+const express = require("express");
+const cors = require("cors"); // CORS modülünü dahil et
+const axios = require("axios");
+require("dotenv").config();
 
 const app = express();
-const PORT = 3000; // Sunucunun çalışacağı port
+const PORT = 3000;
 
 // CORS'u etkinleştir
 app.use(cors());
 
-// Ana rota
-app.get('/', (req, res) => {
-  res.send('Unsplash Image Search API çalışıyor!');
-});
+// Statik dosyaları sunmak için public klasörünü kullan
+app.use(express.static("public"));
 
-// Arama rotası
-app.get('/search', async (req, res) => {
-  const query = req.query.query; // İstekten "query" parametresini al
+// API rotaları
+app.get("/search", async (req, res) => {
+  const query = req.query.query; // İstekten query parametresini al
   if (!query) {
-    return res.status(400).json({ error: 'Arama sorgusu gerekli!' });
+    return res.status(400).json({ error: "Arama sorgusu gerekli!" });
   }
 
   try {
-    const response = await axios.get('https://api.unsplash.com/search/photos', {
+    const response = await axios.get("https://api.unsplash.com/search/photos", {
       params: {
-        query: query,
-        per_page: 10, // Her istekte 10 sonuç döner
+        query: query, // Arama sorgusu
+        per_page: 5 // Döndürülecek sonuç sayısı
       },
       headers: {
-        Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`,
-      },
+        Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`
+      }
     });
 
-    // Gelen veriyi istemciye döndür
     res.json(response.data);
   } catch (error) {
-    console.error(error.message);
-    res.status(500).json({ error: 'Unsplash API isteğinde bir hata oluştu.' });
+    console.error("Unsplash API Hatası:", error.message);
+
+    res.status(500).json({ error: "Unsplash API isteğinde bir hata oluştu." });
   }
 });
 
