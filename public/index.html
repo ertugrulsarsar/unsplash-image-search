@@ -4,21 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unsplash Image Search</title>
-  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="container">
-    <h1>Unsplash Image Search</h1>
-    <input type="text" id="searchInput" placeholder="Resim arayın..." />
-    <button id="searchButton">Ara</button>
-    <div id="loading" style="display:none;">Yükleniyor...</div>
-    <select id="resultCount">
-        <option value="5">5 Sonuç</option>
-        <option value="10" selected>10 Sonuç</option>
-        <option value="20">20 Sonuç</option>
-      </select>  
-    <div id="results"></div>
+<body class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white">
+  <div class="container mx-auto p-6">
+    <h1 class="text-center text-3xl font-bold mb-6">Unsplash Image Search</h1>
+    <div class="flex flex-col items-center">
+      <!-- Arama Girdisi ve Butonu -->
+      <div class="flex space-x-2 w-full max-w-md">
+        <input type="text" id="searchInput" class="flex-grow p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Resim arayın..." />
+        <button id="searchButton" class="bg-white text-blue-500 px-4 py-2 rounded-lg hover:bg-blue-500 hover:text-white transition">Ara</button>
+      </div>
+
+      <!-- Kategori Butonları -->
+      <div class="flex justify-center space-x-4 my-4">
+        <button class="category-btn bg-green-500 px-4 py-2 rounded-lg hover:bg-green-700" data-category="nature">Doğa</button>
+        <button class="category-btn bg-yellow-500 px-4 py-2 rounded-lg hover:bg-yellow-700" data-category="technology">Teknoloji</button>
+        <button class="category-btn bg-red-500 px-4 py-2 rounded-lg hover:bg-red-700" data-category="city">Şehir</button>
+      </div>
+
+      <!-- Yükleniyor Göstergesi ve Sonuç Sayısı Seçici -->
+      <div class="flex justify-between items-center mt-4 w-full max-w-md">
+        <div id="loading" class="text-lg hidden animate-pulse">Yükleniyor...</div>
+        <select id="resultCount" class="p-2 rounded-lg bg-white text-blue-500">
+          <option value="5">5 Sonuç</option>
+          <option value="10" selected>10 Sonuç</option>
+          <option value="20">20 Sonuç</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Sonuçlar -->
+    <div id="results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6"></div>
   </div>
+
+  <!-- Modal -->
+  <div id="imageModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-3/4 max-w-lg relative">
+      <!-- Çıkış Butonu -->
+      <button id="closeModal" class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full hover:bg-red-700 transition">
+        X
+      </button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+  
+
   <script src="script.js"></script>
 </body>
 </html>
