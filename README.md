@@ -1,5 +1,6 @@
 # Unsplash Image Search 🌅
 
+<<<<<<< HEAD
 Bu proje, Unsplash API'sini kullanarak görselleri arayan ve kullanıcıya modern, dinamik bir arayüzle sunan bir web uygulamasıdır. Kullanıcılar, popüler kategorilerden seçim yapabilir, anahtar kelimelerle arama yapabilir ve sonsuz kaydırma (infinite scroll) özelliği sayesinde daha fazla sonuç görüntüleyebilir.
 
 ## 📸 Özellikler
@@ -46,7 +47,7 @@ Eğer proje hakkında sorularınız veya önerileriniz varsa, aşağıdaki adres
 - **E-posta**: ertugrulsarsar@gmail.com
 
 
-## 🚀 Kurulum ve Çalıştırma
+<!-- ## 🚀 Kurulum ve Çalıştırma
 
 ### 1. Depoyu Klonlayın
 Projeyi kendi bilgisayarınıza klonlayın:
@@ -72,5 +73,4 @@ node server.js
 
 ### 5. Tarayıcıda Görüntüleyin
 
-Tarayıcınızda aşağıdaki adrese gidin: http://localhost:3000
-
+Tarayıcınızda aşağıdaki adrese gidin: http://localhost:3000 -->
