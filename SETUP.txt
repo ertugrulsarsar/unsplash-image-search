@@ -1,0 +1,45 @@
+Unsplash Image Search Projesi Kurulum Rehberi
+=============================================
+
+Bu rehber, Unsplash Image Search projesinin bilgisayarınıza nasıl kurulacağını ve çalıştırılacağını açıklamaktadır.
+
+1. Depoyu Klonlayın
+-------------------
+Projeyi bilgisayarınıza indirmek için aşağıdaki komutları çalıştırın:
+
+git clone https://github.com/username/unsplash-image-search.git
+cd unsplash-image-search
+
+2. Gerekli Bağımlılıkları Yükleyin
+----------------------------------
+Node.js ile gerekli bağımlılıkları yüklemek için aşağıdaki komutu çalıştırın:
+
+npm install
+
+3. Unsplash API Anahtarını Alın
+-------------------------------
+- Unsplash Developer Console (https://unsplash.com/developers) adresine giderek bir hesap oluşturun.
+- Yeni bir uygulama oluşturup Access Key alın.
+- Proje klasöründe bir `.env` dosyası oluşturun ve şu satırı ekleyin:
+
+UNSPLASH_ACCESS_KEY=YOUR_ACCESS_KEY
+
+4. Sunucuyu Başlatın
+--------------------
+Proje sunucusunu çalıştırmak için şu komutu çalıştırın:
+
+node server.js
+
+5. Tarayıcıda Görüntüleyin
+--------------------------
+Sunucu çalışmaya başladıktan sonra tarayıcınızda şu adrese gidin:
+
+http://localhost:3000
+
+Notlar:
+------
+- Node.js ve npm kurulu değilse, https://nodejs.org/ adresinden indirip kurabilirsiniz.
+- Unsplash API'nin ücretsiz planı günlük 50 istek sınırı sunar. Daha fazla erişim için Unsplash Developer Plan'ı inceleyebilirsiniz.
+- Tailwind CSS hakkında daha fazla bilgi için https://tailwindcss.com/docs adresine göz atabilirsiniz.
+
+Kurulum sırasında bir sorunla karşılaşırsanız, GitHub üzerinden issue açabilirsiniz.
