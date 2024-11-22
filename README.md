@@ -1,6 +1,5 @@
 # Unsplash Image Search 🌅
 
-<<<<<<< HEAD
 Bu proje, Unsplash API'sini kullanarak görselleri arayan ve kullanıcıya modern, dinamik bir arayüzle sunan bir web uygulamasıdır. Kullanıcılar, popüler kategorilerden seçim yapabilir, anahtar kelimelerle arama yapabilir ve sonsuz kaydırma (infinite scroll) özelliği sayesinde daha fazla sonuç görüntüleyebilir.
 
 ## 📸 Özellikler
